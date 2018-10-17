@@ -26,6 +26,7 @@
 		DB4F30C721759E2C00A36BA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB4F30CA21759E2C00A36BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB4F30CC21759E2C00A36BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB6338682176F98000FA3887 /* CardIOScanSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CardIOScanSample-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +85,7 @@
 				DB4F30C721759E2C00A36BA4 /* Assets.xcassets */,
 				DB4F30C921759E2C00A36BA4 /* LaunchScreen.storyboard */,
 				DB4F30CC21759E2C00A36BA4 /* Info.plist */,
+				DB6338682176F98000FA3887 /* CardIOScanSample-Bridging-Header.h */,
 			);
 			path = CardIOScanSample;
 			sourceTree = "<group>";
@@ -339,6 +341,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.macneko.CardIOScanSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/CardIOScanSample/CardIOScanSample-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -359,6 +362,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.macneko.CardIOScanSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$PROJECT_DIR/CardIOScanSample/CardIOScanSample-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

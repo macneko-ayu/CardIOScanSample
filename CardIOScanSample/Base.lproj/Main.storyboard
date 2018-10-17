@@ -18,20 +18,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbN-lY-kYG">
-                                <rect key="frame" x="223" y="331" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CbN-lY-kYG">
+                                <rect key="frame" x="112.5" y="537" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="0gO-Cr-Khn"/>
+                                </constraints>
+                                <state key="normal" title="カスタマイズできる">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3d-fv-g7O">
-                                <rect key="frame" x="107" y="331" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q3d-fv-g7O">
+                                <rect key="frame" x="112.5" y="487" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="SDKに任せる">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPaymentViewController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DPb-qK-8pe"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="番号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSl-Hc-H8a">
+                                <rect key="frame" x="170" y="161" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="有効期限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HD6-ES-lM8">
+                                <rect key="frame" x="152.5" y="202" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="セキュリティコード" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZE6-hr-ulO">
+                                <rect key="frame" x="109.5" y="243" width="156" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="q3d-fv-g7O" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2cu-Ly-H9c"/>
+                            <constraint firstItem="QSl-Hc-H8a" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7eD-2S-fWm"/>
+                            <constraint firstItem="HD6-ES-lM8" firstAttribute="centerX" secondItem="QSl-Hc-H8a" secondAttribute="centerX" id="ApU-F1-PAZ"/>
+                            <constraint firstItem="ZE6-hr-ulO" firstAttribute="centerX" secondItem="QSl-Hc-H8a" secondAttribute="centerX" id="KYX-8W-hST"/>
+                            <constraint firstItem="CbN-lY-kYG" firstAttribute="top" secondItem="q3d-fv-g7O" secondAttribute="bottom" constant="20" id="QTq-Rr-Zir"/>
+                            <constraint firstItem="CbN-lY-kYG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X4p-eb-pmQ"/>
+                            <constraint firstItem="CbN-lY-kYG" firstAttribute="width" secondItem="q3d-fv-g7O" secondAttribute="width" id="Y8q-Sy-nqL"/>
+                            <constraint firstItem="HD6-ES-lM8" firstAttribute="top" secondItem="QSl-Hc-H8a" secondAttribute="bottom" constant="20" id="Zt2-2L-f2s"/>
+                            <constraint firstItem="QSl-Hc-H8a" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="141" id="ftF-TB-BVa"/>
+                            <constraint firstItem="ZE6-hr-ulO" firstAttribute="top" secondItem="HD6-ES-lM8" secondAttribute="bottom" constant="20" id="ojn-ZS-15h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CbN-lY-kYG" secondAttribute="bottom" constant="100" id="owE-VQ-ooM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="cardNumberLabel" destination="QSl-Hc-H8a" id="k0b-JU-ZP2"/>
+                        <outlet property="codeLabel" destination="ZE6-hr-ulO" id="2qx-kQ-GA2"/>
+                        <outlet property="expirationDateLabel" destination="HD6-ES-lM8" id="R6x-y5-54y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

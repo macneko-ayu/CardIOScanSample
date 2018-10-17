@@ -10,11 +10,46 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var cardNumberLabel: UILabel!
+    @IBOutlet weak var expirationDateLabel: UILabel!
+    @IBOutlet weak var codeLabel: UILabel!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        if !CardIOUtilities.canReadCardWithCamera() {
+            // カメラが使えない場合。
+            // ここでスキャンボタンを非表示にする処理等を行う
+        } else {
+            // スキャンの遅延防止のためにCardIO SDKのリソースをあらかじめ読み込む
+            CardIOUtilities.preloadCardIO()
+        }
     }
 
-
+    @IBAction func showPaymentViewController(_ sender: Any) {
+        let vc = CardIOPaymentViewController(paymentDelegate: self)
+        vc?.modalPresentationStyle = .formSheet
+        present(vc!, animated: true, completion: {
+            self.cardNumberLabel.text = "番号"
+            self.expirationDateLabel.text = "有効期限"
+            self.codeLabel.text = "セキュリティコード"
+        })
+    }
 }
 
+extension ViewController: CardIOPaymentViewControllerDelegate {
+    func userDidCancel(_ paymentViewController: CardIOPaymentViewController!) {
+        // キャンセルボタンをタップした時に呼ばれる。
+        dismiss(animated: true)
+    }
+
+    func userDidProvide(_ cardInfo: CardIOCreditCardInfo!, in paymentViewController: CardIOPaymentViewController!) {
+        // カード番号のスキャン後にセキュリティーコードを手入力して完了ボタンをタップした場合や、全て手入力して完了ボタンをタップした場合に呼ばれる。
+        self.cardNumberLabel.text = cardInfo.cardNumber
+        self.expirationDateLabel.text = String(cardInfo.expiryMonth) + "/" + String(cardInfo.expiryYear)
+        self.codeLabel.text = cardInfo.cvv
+
+        dismiss(animated: true)
+    }
+}
