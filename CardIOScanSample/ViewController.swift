@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var expirationDateLabel: UILabel!
     @IBOutlet weak var codeLabel: UILabel!
 
+    lazy var cardInfo = CardIOCreditCardInfo()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,26 +31,36 @@ class ViewController: UIViewController {
     @IBAction func showPaymentViewController(_ sender: Any) {
         let vc = CardIOPaymentViewController(paymentDelegate: self)
         vc?.modalPresentationStyle = .formSheet
-        present(vc!, animated: true, completion: {
-            self.cardNumberLabel.text = "番号"
-            self.expirationDateLabel.text = "有効期限"
-            self.codeLabel.text = "セキュリティコード"
+        present(vc!, animated: true, completion: { [weak self] in
+            self?.updateLabels()
         })
     }
+
+    func updateLabels() {
+        cardNumberLabel.text = cardInfo.cardNumber != "" ? cardInfo.cardNumber : "番号"
+        if cardInfo.expiryMonth > 0 && cardInfo.expiryYear > 0 {
+            expirationDateLabel.text = String(cardInfo.expiryMonth) + "/" + String(cardInfo.expiryYear)
+        } else {
+            expirationDateLabel.text = "有効期限"
+        }
+        codeLabel.text = cardInfo.cvv != "" ? cardInfo.cvv : "セキュリティコード"
+    }
+
+
 }
 
 extension ViewController: CardIOPaymentViewControllerDelegate {
     func userDidCancel(_ paymentViewController: CardIOPaymentViewController!) {
         // キャンセルボタンをタップした時に呼ばれる。
+        updateLabels()
         dismiss(animated: true)
     }
 
     func userDidProvide(_ cardInfo: CardIOCreditCardInfo!, in paymentViewController: CardIOPaymentViewController!) {
         // カード番号のスキャン後にセキュリティーコードを手入力して完了ボタンをタップした場合や、全て手入力して完了ボタンをタップした場合に呼ばれる。
-        self.cardNumberLabel.text = cardInfo.cardNumber
-        self.expirationDateLabel.text = String(cardInfo.expiryMonth) + "/" + String(cardInfo.expiryYear)
-        self.codeLabel.text = cardInfo.cvv
-
-        dismiss(animated: true)
+        self.cardInfo = cardInfo
+        dismiss(animated: true, completion: { [weak self] in
+            self?.updateLabels()
+        })
     }
 }
