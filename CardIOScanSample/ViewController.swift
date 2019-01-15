@@ -31,9 +31,14 @@ class ViewController: UIViewController {
     @IBAction func showPaymentViewController(_ sender: Any) {
         let vc = CardIOPaymentViewController(paymentDelegate: self)
         vc?.modalPresentationStyle = .formSheet
-        present(vc!, animated: true, completion: { [weak self] in
+        present(vc!, animated: true) { [weak self] in
             self?.updateLabels()
-        })
+        }
+    }
+
+    @IBAction func showCustomViewController(_ sender: Any) {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "CustomViewController") as! CustomViewController
+        present(vc, animated: true)
     }
 
     func updateLabels() {
@@ -45,8 +50,6 @@ class ViewController: UIViewController {
         }
         codeLabel.text = cardInfo.cvv != "" ? cardInfo.cvv : "セキュリティコード"
     }
-
-
 }
 
 extension ViewController: CardIOPaymentViewControllerDelegate {

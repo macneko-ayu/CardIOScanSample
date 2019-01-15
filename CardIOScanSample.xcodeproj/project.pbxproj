@@ -13,6 +13,7 @@
 		DB4F30C621759E2900A36BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4F30C421759E2900A36BA4 /* Main.storyboard */; };
 		DB4F30C821759E2C00A36BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB4F30C721759E2C00A36BA4 /* Assets.xcassets */; };
 		DB4F30CB21759E2C00A36BA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4F30C921759E2C00A36BA4 /* LaunchScreen.storyboard */; };
+		DB63386A2177217700FA3887 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6338692177217700FA3887 /* CustomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		DB4F30CA21759E2C00A36BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB4F30CC21759E2C00A36BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB6338682176F98000FA3887 /* CardIOScanSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CardIOScanSample-Bridging-Header.h"; sourceTree = "<group>"; };
+		DB6338692177217700FA3887 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				DB4F30C921759E2C00A36BA4 /* LaunchScreen.storyboard */,
 				DB4F30CC21759E2C00A36BA4 /* Info.plist */,
 				DB6338682176F98000FA3887 /* CardIOScanSample-Bridging-Header.h */,
+				DB6338692177217700FA3887 /* CustomViewController.swift */,
 			);
 			path = CardIOScanSample;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB63386A2177217700FA3887 /* CustomViewController.swift in Sources */,
 				DB4F30C321759E2900A36BA4 /* ViewController.swift in Sources */,
 				DB4F30C121759E2900A36BA4 /* AppDelegate.swift in Sources */,
 			);
